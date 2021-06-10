@@ -1,0 +1,56 @@
+/* Write a method which accept unsorted array as a parameter from unsorted array only find out min
+value and max value. Your method should return min value and max value both? */
+
+using System;
+ 
+class Program
+{
+    
+    class MaxMin
+    {
+        public int min;
+        public int max;
+    }
+ 
+    static MaxMin getMinMax(int []arr, int n)
+    {
+        MaxMin obj = new MaxMin();
+        int i;
+         
+		if (arr[0] > arr[1])
+        {
+            obj.max = arr[0];
+            obj.min = arr[1];
+        }
+        else
+        {
+            obj.max = arr[1];
+            obj.min = arr[0];
+        }
+ 
+        for (i = 2; i < n; i++)
+        {
+            if (arr[i] > obj.max)
+            {
+                obj.max = arr[i];
+            }
+            else if (arr[i] < obj.min)
+            {
+                obj.min = arr[i];
+            }
+        }
+        return obj;
+    }
+ 
+   
+    public static void Main(String []args)
+    {
+        int []arr = {700, 987, 547, 171, 336, 989};
+       // int arr_size = 6;
+        MaxMin obj1 = getMinMax(arr, arr.Length);
+        Console.Write("Minimum value is {0}",
+                                   obj1.min);
+        Console.Write("\nMaximum value is {0}",
+                                     obj1.max);
+    }
+}
