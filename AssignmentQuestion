@@ -1,0 +1,263 @@
+// Write a program and ask the user to enter a number. The number should be between 1 to 10. If the user enters a valid number, display "Valid" on the console. Otherwise, display "Invalid". (This logic is used a lot in applications where values entered into input boxes need to be validated.)
+ using System;
+
+namespace Quest1
+	{
+					
+	public class Program
+	{
+		public static void Main(string[] args)
+		{
+			int value;
+			
+			// Type your username and press enter
+      Console.WriteLine("Enter Number:");
+
+      // Create a string variable and get user input from the keyboard and store it in the variable
+      string num = Console.ReadLine();
+
+			
+			
+			value = Convert.ToInt32(num);
+			
+			
+			if (value > 0 && value < 11)
+			{
+				Console.WriteLine("Valid Input!");
+			}
+			else{
+				Console.WriteLine("Invalid Input!");
+			}
+		}
+	}
+
+}
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// Write a program which takes two numbers from the console and displays the maximum of the two.
+ using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		int firstNum;
+		int secondNum;
+		
+		//Taking the input from user
+		Console.WriteLine("Please enter two numbers: ");
+		
+		//Storing numbers in the variable
+		firstNum = Convert.ToInt32(Console.ReadLine());
+		secondNum = Convert.ToInt32(Console.ReadLine());
+		
+		//Findout the maximum of two and print
+		if(firstNum>secondNum){
+		
+			Console.WriteLine("The Maximum number is: "+ firstNum);
+			
+		}
+		else{
+		
+			Console.WriteLine("The Maximum number is:"+ secondNum);
+		}
+	}
+}
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// Write a program and ask the user to enter the width and height of an image. Then tell if the image is landscape or portrait.
+ using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		int height;
+		int width;
+		
+		//Getting input from user
+		Console.WriteLine("Please enter height and width of the image: ");
+		
+		//storing the input in variable
+		height = Convert.ToInt32(Console.ReadLine());
+		width = Convert.ToInt32(Console.ReadLine());
+		
+		//Finding out whether the image is portrait or landscape
+		if(height > width){
+		
+		Console.WriteLine("The image is Portrait.");
+		}
+		else if(height < width){
+		
+		Console.WriteLine("The image is Landscape.");
+		}
+		else{
+		
+		Console.WriteLine("The image is Square");
+		}
+		
+		
+	}
+}
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// Your job is to write a program for a speed camera. For simplicity, ignore the details such as camera, sensors, etc and focus purely on the logic. Write a program that asks the user to enter the speed limit. Once set, the program asks for the speed of a car. If the user enters a value less than the speed limit, program should display Ok on the console. If the value is above the speed limit, the program should calculate the number of demerit points. For every 5km/hr above the speed limit, 1 demerit points should be incurred and displayed on the console. If the number of demerit points is above 12, the program should display License Suspended.
+ using System;
+					
+public class Program
+{
+		public static void Main()
+		{
+			Console.WriteLine("Please enter the speed limit value: ");
+            var speedLimit = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Please enter the speed of the car");
+            var carSpeed = Convert.ToInt32(Console.ReadLine());
+
+            if (carSpeed > speedLimit)
+            {
+                int penaltyPoints = 0;
+                while (carSpeed > speedLimit)
+                {
+                    carSpeed -= 5;
+                    penaltyPoints++;
+                }
+
+                if (penaltyPoints > 12)
+                    Console.WriteLine("License Suspended.");
+            }
+            else
+            {
+                Console.WriteLine("OK");
+            }
+		}
+	}
+  
+  //--------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+  // Write a program to count how many numbers between 1 and 100 are divisible by 3 with no remainder. Display the count on the console.
+ using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		Console.WriteLine("Divided by 3: ");
+            for (int i=1;i<=100;i++)
+            {
+                if(i%3==0)
+                {
+                    Console.WriteLine(i);
+                }
+            }
+	}
+}
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// Write a program and continuously ask the user to enter a number or "ok" to exit. Calculate the sum of all the previously entered numbers and display it on the console.
+ using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		int sum = 0;
+            while (true)
+            {
+                Console.WriteLine("Please enter a number: ");
+                var input = Console.ReadLine();
+
+                if (input == "ok")
+                    break;
+
+                int num = Convert.ToInt32(input);
+
+                sum = sum + num;
+            }
+            
+            Console.WriteLine("Sum of all the entered numbers is: {0}", sum);
+        
+	}
+}
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// Write a program and ask the user to enter a number. Compute the factorial of the number and print it on the console. For example, if the user enters 5, the program should calculate 5 x 4 x 3 x 2 x 1 and display it as 5! = 120.
+ using System;  
+public class Program  
+{  
+    public static void Main()
+{
+  int i,fact=1,num;
+  
+  Console.Write("Input the number : ");
+   num= Convert.ToInt32(Console.ReadLine()); 
+  for(i=1;i<=num;i++)
+      fact=fact*i;
+
+  Console.Write(num+"! "+ fact);
+ }
+}
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// Write a program that picks a random number between 1 and 10. Give the user 4 chances to guess the number. If the user guesses the number, display “You won"; otherwise, display “You lost". (To make sure the program is behaving correctly, you can display the secret number on the console first.)
+ using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		Random number = new Random();
+		int randomNumber = number.Next(1, 10);
+
+for (int i = 1; i < 5; i++)
+{
+    Console.Write("Input a number: ");
+    int guessInput = Convert.ToInt32(Console.ReadLine());
+    if (guessInput == randomNumber)
+    {
+        Console.WriteLine("You win!");
+        break;
+    }
+    else
+    {
+        Console.WriteLine("You Losr!");
+    }
+}
+	}
+}
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// Write a program that reads a text file and displays the number of words.
+ using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		string sentence;
+		int noOfWords = 0;
+		System.IO.StreamReader file = new System.IO.StreamReader(@"Angular-Notes.txt");
+		
+		while((sentence = file.ReadLine()) != null){
+		
+			String[] words = sentence.Split(' ');
+			
+			noOfWords = noOfWords + words.Length;
+			
+		}
+		
+		Console.WriteLine("The number of words are "+ noOfWords);
+		file.Close();
+		
+	}
+}
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+
